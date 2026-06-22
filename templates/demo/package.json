@@ -1,0 +1,9 @@
+{
+  "name": "demo-viteplus-template-output",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo \"Replace this bundled demo template with your real project files.\""
+  }
+}

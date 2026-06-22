@@ -1,0 +1,49 @@
+{
+  "name": "@thunderstrikeco/create",
+  "version": "0.1.0",
+  "description": "Vite+ organization template picker for @thunderstrikeco.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "files": [
+    "README.md",
+    "templates"
+  ],
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "scripts": {
+    "verify:manifest": "vp create @thunderstrikeco --no-interactive",
+    "verify:web-react": "vp create @thunderstrikeco:web-react --no-interactive",
+    "verify:demo": "vp create @thunderstrikeco:demo --no-interactive"
+  },
+  "createConfig": {
+    "templates": [
+      {
+        "name": "web-react",
+        "description": "TODO: React web app template",
+        "template": "@thunderstrikeco/template-web-react"
+      },
+      {
+        "name": "web-vue",
+        "description": "TODO: Vue web app template",
+        "template": "@thunderstrikeco/template-web-vue"
+      },
+      {
+        "name": "web-svelte",
+        "description": "TODO: Svelte web app template",
+        "template": "@thunderstrikeco/template-web-svelte"
+      },
+      {
+        "name": "demo",
+        "description": "Bundled demo template included in this package",
+        "template": "./templates/demo"
+      },
+      {
+        "name": "monorepo",
+        "description": "TODO: Monorepo starter",
+        "template": "./templates/monorepo",
+        "monorepo": true
+      }
+    ]
+  }
+}
