@@ -1,0 +1,57 @@
+# .verdaccio/config.yaml
+
+storage: ./storage
+plugins: ./plugins
+
+web:
+  title: Vite Plus Local Registry
+
+auth:
+  htpasswd:
+    file: ./htpasswd
+    # Allows exactly one local user to be created with `npm adduser`.
+    # After creating the user, you can change this to -1 to disable signups.
+    max_users: 1
+    algorithm: bcrypt
+    rounds: 10
+
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+    cache: true
+
+packages:
+  # Local project packages. No proxy means Verdaccio will only resolve these
+  # if you explicitly published them into this local registry.
+  '@thunderstrikeco/*':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+
+  'vite-plus':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+
+  'vite-task':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+
+  # Everything else falls through to npm.
+  '**':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: npmjs
+
+middlewares:
+  audit:
+    enabled: true
+
+log:
+  type: stdout
+  format: pretty
+  level: http
+
+listen: 127.0.0.1:4873
