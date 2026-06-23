@@ -7,14 +7,19 @@ _.file = [
 [tools]
 node = "latest"
 aube = "latest"
+viteplus = "latest"
 
 [tasks.dev]
 raw_args = true
-run = "aube dev"
+run = "vp dev"
 
 [tasks.test]
 raw_args = true
-run = "aube test"
+run = "vp test"
+
+[tasks.vp]
+raw_args = true
+run = "vp"
 
 [tasks.aube]
 raw_args = true

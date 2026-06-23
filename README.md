@@ -16,6 +16,39 @@ Vite+ maps that command to this package:
 
 Vite+ then reads `createConfig.templates` from this package's `package.json`.
 
+## Testing the templates
+
+First run:
+
+```bash
+pnpm start:registry
+```
+
+Then, in a separate terminal: 
+```bash
+pnpm registry:add-user  
+# Username: test
+# Password: test
+# Email: test@test.co
+```
+
+Then create a `.npmrc` file in the root of this package with the following content:
+
+```ini
+@thunderstrikeco:registry=http://localhost:4873
+```
+
+Then, in a separate terminal, run:
+```bash
+pnpm publish:local
+```
+
+From here you can now verify the templates are working by running:
+
+```bash
+pnpm verify:tanstack-start-solid
+```
+
 ## What to edit first
 
 Open `package.json` and update:
