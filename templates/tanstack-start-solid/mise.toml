@@ -1,0 +1,29 @@
+[env]
+_.file = [
+  ".env",
+  ".env.local"
+]
+
+[tools]
+node = "latest"
+aube = "latest"
+
+[tasks.dev]
+raw_args = true
+run = "aube dev"
+
+[tasks.test]
+raw_args = true
+run = "aube test"
+
+[tasks.aube]
+raw_args = true
+run = "aube"
+
+[tasks.aubr]
+raw_args = true
+run = "aubr"
+
+[tasks.aubx]
+raw_args = true
+run = "aubx"

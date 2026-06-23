@@ -19,6 +19,11 @@
   "createConfig": {
     "templates": [
       {
+        "name": "tanstack-start-solid",
+        "description": "TanStack Start + Solid app with Content Collections, Formisch, Tailwind, icons, and great authoring DX",
+        "template": "./templates/tanstack-start-solid"
+      }
+      {
         "name": "web-react",
         "description": "TODO: React web app template",
         "template": "@thunderstrikeco/template-web-react"
