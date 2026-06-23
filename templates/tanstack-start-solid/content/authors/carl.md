@@ -1,6 +1,10 @@
 ---
-name: Carl
+name: Carl Example
 title: Software Engineer
+bio: Writes about building fast, durable web systems.
+featured: true
+socials:
+  github: https://github.com/example
 ---
 
-Carl writes about building durable web systems with a strong bias for boring authoring surfaces and explicit runtime boundaries.
+Carl is the default example author for the starter.

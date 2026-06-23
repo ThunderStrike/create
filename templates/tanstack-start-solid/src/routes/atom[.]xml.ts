@@ -1,13 +1,13 @@
 import { createFileRoute } from '@tanstack/solid-router';
 import { createSiteFeed, feedHeaders } from '@/lib/feeds/index.ts';
 
-export const Route = createFileRoute('/rss.xml')({
+export const Route = createFileRoute('/atom.xml')({
   server: {
     handlers: {
-      GET: async () => new Response(createSiteFeed().rss2(), {
+      GET: async () => new Response(createSiteFeed().atom1(), {
         headers: {
           ...feedHeaders,
-          'content-type': 'application/rss+xml; charset=utf-8',
+          'content-type': 'application/atom+xml; charset=utf-8',
         },
       }),
     },

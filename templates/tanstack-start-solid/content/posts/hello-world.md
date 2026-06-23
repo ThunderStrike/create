@@ -1,22 +1,40 @@
 ---
-title: Hello TanStack Start
-description: The first article in a local Content Collections setup for TanStack Start and Solid.
+title: Hello from Tanstack Start
+description: A first article showing the local content pipeline, route metadata, RSS, and IPX image route.
+excerpt: A first article showing the local content pipeline.
 publishedAt: 2026-06-22
+updatedAt: 2026-06-22
+featured: true
 authors:
   - carl
-tags:
-  - tanstack
-  - solid
+categories:
+  - engineering
+topics:
+  - tanstack-start
+  - content-systems
+series: tanstack-start
+seriesOrder: 1
+hero:
+  src: /images/cover.svg
+  alt: Abstract preview graphic for the template
+  caption: Local images can be served through the IPX route.
+seo:
+  title: Hello from Tanstack Start
+  description: A first article powered by Content Collections and TanStack Start.
 ---
 
-This template treats content as local build input, not as a remote CMS integration.
+This starter keeps the public authoring surface boring:
 
-The important thing is not to clone Astro's implementation. The important thing is to preserve the authoring contract:
+- routes are normal TanStack route files,
+- content is normal Markdown,
+- schemas live in `content-collections.ts`,
+- shared site metadata lives in a small TypeScript module,
+- images can use the `/ipx/*` route when runtime optimization is useful.
 
-- write content as files
-- validate frontmatter
-- generate typed imports
-- keep routes TanStack-native
-- keep build machinery mostly invisible
+## Content Collections
 
-That gives you the parts of Astro that feel great while still respecting TanStack Start's route and server model.
+Content Collections validates frontmatter and creates generated TypeScript data. The app adds only the policy it needs: sorting posts, hiding drafts, and resolving references.
+
+## TanStack Start
+
+TanStack Start owns the route tree, loaders, head metadata, server routes, server functions, prerendering, and sitemap generation.

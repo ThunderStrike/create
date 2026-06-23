@@ -2,27 +2,30 @@
   "name": "tanstack-start-solid-app",
   "version": "0.0.0",
   "private": true,
+  "sideEffects": false,
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
-    "start": "vite start",
-    "typecheck": "tsc --noEmit",
-    "check": "tsc --noEmit",
+    "build": "vite build && tsc --noEmit",
+    "preview": "vite preview",
+    "start": "node .output/server/index.mjs",
+    "check": "content-collections build && tsc --noEmit",
     "test": "vitest run"
   },
   "dependencies": {
     "@formisch/solid": "latest",
     "@tanstack/solid-query": "latest",
     "@tanstack/solid-router": "latest",
+    "@tanstack/solid-router-ssr-query": "latest",
     "@tanstack/solid-start": "latest",
-    "@tanstack/solid-table": "latest",
-    "@tanstack/solid-virtual": "latest",
-    "@tanstack/store": "latest",
+    "feed": "latest",
+    "ipx": "latest",
+    "sharp": "latest",
     "cnfast": "latest",
+    "@kobalte/core": "latest",
+    "tw-animate-css": "latest",
     "solid-js": "latest",
-    "valibot": "latest",
-    "zod": "latest"
+    "valibot": "latest"
   },
   "devDependencies": {
     "@content-collections/core": "latest",
@@ -30,13 +33,19 @@
     "@content-collections/vite": "latest",
     "@iconify-json/lucide": "latest",
     "@tailwindcss/vite": "latest",
+    "@tanstack/solid-query-devtools": "latest",
+    "@tanstack/solid-router-devtools": "latest",
     "@types/node": "latest",
     "fontaine": "latest",
+    "nitro": "latest",
+    "tailwindcss": "latest",
     "typescript": "latest",
     "unifont": "latest",
     "unplugin-icons": "latest",
     "vite": "latest",
     "vite-plugin-solid": "latest",
-    "vitest": "latest"
+    "vitest": "latest",
+    "zod": "latest",
+    "jiti": "latest"
   }
 }

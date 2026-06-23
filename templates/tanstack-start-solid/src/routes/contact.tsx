@@ -1,34 +1,29 @@
-import { createFileRoute } from '@tanstack/solid-router';
 import { createForm, Field, Form } from '@formisch/solid';
-import { createSignal, Show } from 'solid-js';
+import { createFileRoute } from '@tanstack/solid-router';
+import { Show, createSignal } from 'solid-js';
 import { ContactSchema } from '@/lib/forms/contact.ts';
-import { sendContactMessage } from '@/server-functions/contact.ts';
+import { canonical, seo } from '@/lib/seo.ts';
 import { site } from '@/lib/site.ts';
+import { sendContactMessage } from '@/server-functions/contact.ts';
 
 export const Route = createFileRoute('/contact')({
   head: () => ({
-    meta: [
-      { title: `Contact · ${site.name}` },
-      { name: 'description', content: 'A Formisch + Valibot form that submits through a TanStack Start server function.' },
-    ],
+    meta: seo({ title: `Contact · ${site.name}`, description: 'A small Formisch + Valibot form backed by a TanStack server function.' }),
+    links: canonical('/contact'),
   }),
   component: ContactPage,
 });
 
 function ContactPage() {
+  const contactForm = createForm({ schema: ContactSchema });
   const [sent, setSent] = createSignal(false);
-  const contactForm = createForm({
-    schema: ContactSchema,
-  });
 
   return (
-    <main class="mx-auto grid max-w-xl gap-8 px-6 py-16">
+    <main class="mx-auto grid max-w-2xl gap-8 px-6 py-16">
       <header class="grid gap-3">
         <p class="text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">Formisch</p>
-        <h1 class="text-4xl font-semibold tracking-tight">Contact</h1>
-        <p class="text-neutral-700">
-          The client form uses Formisch for Solid DX. The server function validates the same schema again at the trust boundary.
-        </p>
+        <h1 class="text-4xl font-semibold tracking-tight">Schema-first Solid forms</h1>
+        <p class="text-neutral-700">Formisch owns the client form. The server function parses the same Valibot schema again at the trust boundary.</p>
       </header>
 
       <Show when={sent()}>
