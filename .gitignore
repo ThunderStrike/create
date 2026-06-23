@@ -232,6 +232,8 @@ $RECYCLE.BIN/
 # Temporary files
 .tmp/
 .verdaccio/storage/
+.verdaccio/htpasswd
+
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,linux,node,deno
 
