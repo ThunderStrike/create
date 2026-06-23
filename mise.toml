@@ -1,4 +1,4 @@
 [tools]
 node = "latest"
-viteplus = "latest"
 pnpm = "latest"
+viteplus = "latest"
