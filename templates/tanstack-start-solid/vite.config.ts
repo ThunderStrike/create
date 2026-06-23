@@ -1,23 +1,25 @@
-import { contentCollections } from '@content-collections/vite';
+import contentCollections from '@content-collections/vite';
 import { tanstackStart } from '@tanstack/solid-start/plugin/vite';
 import tailwindcss from '@tailwindcss/vite';
 import { FontaineTransform } from 'fontaine';
 import { nitro } from 'nitro/vite';
 import Icons from 'unplugin-icons/vite';
 import { FileSystemIconLoader } from 'unplugin-icons/loaders';
-import { defineConfig } from 'vite';
+import { defineConfig, lazyPlugins } from 'vite-plus';
 import viteSolid from 'vite-plugin-solid';
 
 const siteOrigin = process.env.VITE_SITE_ORIGIN ?? 'http://localhost:3000';
 
 export default defineConfig({
+  fmt: {},
+  lint: {"jsPlugins":[{"name":"vite-plus","specifier":"vite-plus/oxlint-plugin"}],"rules":{"vite-plus/prefer-vite-plus-imports":"error"},"options":{"typeAware":true,"typeCheck":true}},
   server: {
     port: 3000,
   },
   resolve: {
     tsconfigPaths: true,
   },
-  plugins: [
+  plugins: lazyPlugins(() => [
     // Content Collections must run first so generated content imports are ready
     // before Start scans and transforms route modules.
     contentCollections(),
@@ -42,7 +44,7 @@ export default defineConfig({
           return new URL(`./public${id}`, import.meta.url).href;
         }
 
-        return id;
+        return id
       },
     }),
 
@@ -59,5 +61,5 @@ export default defineConfig({
     // Current TanStack Start Solid examples include Nitro as the deploy/runtime
     // server layer when using the Vite plugin.
     nitro(),
-  ],
+  ]),
 });

@@ -1,6 +1,6 @@
 {
   "name": "@thunderstrikeco/create",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vite+ organization template picker for @thunderstrikeco.",
   "license": "UNLICENSED",
   "type": "module",
@@ -15,7 +15,7 @@
     "verify:manifest": "vp create @thunderstrikeco --no-interactive",
     "verify:web-react": "vp create @thunderstrikeco:web-react --no-interactive",
     "verify:demo": "vp create @thunderstrikeco:demo --no-interactive",
-    "verify:tanstack-start-solid": "vp create @thunderstrikeco:tanstack-start-solid --no-interactive --directory .tmp/tanstack-start-solid",
+    "verify:tanstack-start-solid": "vp create @thunderstrikeco:tanstack-start-solid --no-interactive --directory .tmp/tanstack-start-solid --no-hooks --no-git --approve-builds --verbose",
     "start:registry": "pnpm dlx verdaccio --config .verdaccio/config.yaml",
     "registry:add-user": "npm add-user --registry http://localhost:4873",
     "publish:local": "pnpm publish --registry http://localhost:4873 --access restricted --no-git-checks"

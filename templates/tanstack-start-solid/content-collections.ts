@@ -17,7 +17,7 @@ const seoSchema = z.object({
   title: z.string().min(1).optional(),
   description: z.string().min(1).optional(),
   image: absoluteOrRootUrl.optional(),
-  canonical: z.string().url().optional(),
+  canonical: z.url().optional(),
   noindex: z.boolean().default(false),
 }).default({});
 
@@ -30,9 +30,11 @@ const authors = defineCollection({
     title: z.string().optional(),
     bio: z.string().optional(),
     avatar: imageSchema.optional(),
-    website: z.string().url().optional(),
-    socials: z.record(z.string(), z.string().url()).default({}),
+    website: z.url().optional(),
+    socials: z.record(z.string(), z.url()).default({}),
     featured: z.boolean().default(false),
+    // content must now be explicitly defined
+    content: z.string(),
   }),
   transform: async (document, context) => {
     const html = await compileMarkdown(context, document);
@@ -54,6 +56,8 @@ const categories = defineCollection({
     description: z.string().min(1),
     order: z.number().int().default(0),
     seo: seoSchema,
+    // content must now be explicitly defined
+    content: z.string(),
   }),
   transform: async (document, context) => ({
     ...document,
@@ -72,6 +76,8 @@ const topics = defineCollection({
     category: slugRef.optional(),
     order: z.number().int().default(0),
     seo: seoSchema,
+    // content must now be explicitly defined
+    content: z.string(),
   }),
   transform: async (document, context) => ({
     ...document,
@@ -91,6 +97,8 @@ const series = defineCollection({
     order: z.number().int().default(0),
     hero: imageSchema.optional(),
     seo: seoSchema,
+    // content must now be explicitly defined
+    content: z.string(),
   }),
   transform: async (document, context) => ({
     ...document,
@@ -118,6 +126,8 @@ const posts = defineCollection({
     seriesOrder: z.number().int().optional(),
     hero: imageSchema.optional(),
     seo: seoSchema,
+    // content must now be explicitly defined
+    content: z.string(),
   }),
   transform: async (document, context) => {
     const html = await compileMarkdown(context, document, {
