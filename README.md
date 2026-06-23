@@ -35,7 +35,8 @@ pnpm registry:add-user
 Then create a `.npmrc` file in the root of this package with the following content:
 
 ```ini
-@thunderstrikeco:registry=http://localhost:4873
+@thunderstrikeco:registry=http://localhost:4873/
+//registry.example.com/:_authToken=${NPM_TOKEN}
 ```
 
 Then, in a separate terminal, run:

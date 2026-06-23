@@ -6,7 +6,7 @@ _.file = [
 
 [tools]
 node = "latest"
-aube = "latest"
+pnpm = "latest"
 viteplus = "latest"
 
 [tasks.dev]
@@ -17,18 +17,10 @@ run = "vp dev"
 raw_args = true
 run = "vp test"
 
-[tasks.vp]
+[tasks.pnpm]
 raw_args = true
-run = "vp"
+run = "pnpm"
 
-[tasks.aube]
+[tasks.pnpx]
 raw_args = true
-run = "aube"
-
-[tasks.aubr]
-raw_args = true
-run = "aubr"
-
-[tasks.aubx]
-raw_args = true
-run = "aubx"
+run = "pnpx"

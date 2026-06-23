@@ -1,5 +1,5 @@
 # Use this only if your org packages are hosted in a private npm registry.
 # Replace the registry URL and token source with your real values.
 
-@thunderstrikeco:registry=https://registry.example.com
+@thunderstrikeco:registry=http://localhost:4873/
 //registry.example.com/:_authToken=${NPM_TOKEN}
