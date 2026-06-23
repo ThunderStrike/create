@@ -2,4 +2,3 @@
 # Replace the registry URL and token source with your real values.
 
 @thunderstrikeco:registry=http://localhost:4873/
-//registry.example.com/:_authToken=${NPM_TOKEN}
